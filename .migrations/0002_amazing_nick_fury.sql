@@ -1,0 +1,1 @@
+ALTER TABLE "goal_completions" ALTER COLUMN "id" SET NOT NULL;
