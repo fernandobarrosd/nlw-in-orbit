@@ -7,7 +7,7 @@ import { and, count, eq, gte, lte, sql } from "drizzle-orm";
 export async function getWeeklyPendingGoalsUseCase() {
     const firstDayOfWeek = dayjs()
     .startOf("week")
-    .toDate()
+    .toDate();
 
     const lastDayOfWeek = dayjs()
     .endOf("week")
@@ -60,8 +60,7 @@ export async function getWeeklyPendingGoalsUseCase() {
     })
     .from(goalsCreatedUpToWeek)
     .leftJoin(goalsCompletionCounts, 
-        eq(goalsCompletionCounts.goalID, goalsCreatedUpToWeek.id))
-        .toSQL();
+        eq(goalsCompletionCounts.goalID, goalsCreatedUpToWeek.id));
     return {
         pendingGoals
     }
