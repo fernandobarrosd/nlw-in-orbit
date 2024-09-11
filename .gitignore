@@ -2,3 +2,34 @@ server/node_modules
 server/yarn.lock
 server/package-lock.json
 server/.env
+
+
+web/node_modules
+web/yarn.lock
+web/package-lock.json
+web/dist
+web/dist-ssr
+web/*.local
+
+
+# Logs
+web/logs
+web/*.log
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/pnpm-debug.log*
+web/lerna-debug.log*
+
+
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
