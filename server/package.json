@@ -10,6 +10,7 @@
     "drizzle-studio": "yarn drizzle-kit studio",
     "run:seed": "tsx --env-file .env src/db/seed.ts",
     "build": "tsc",
+    "start": "node .",
     "prod": "yarn run:migrations && yarn build"
   },
   "devDependencies": {
