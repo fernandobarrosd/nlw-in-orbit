@@ -10,7 +10,7 @@
     "drizzle-studio": "yarn drizzle-kit studio",
     "run:seed": "tsx --env-file .env src/db/seed.ts",
     "build": "tsc",
-    "prod": "yarn run:migrations && yarn run:seed && yarn build"
+    "prod": "yarn run:migrations && yarn build"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
