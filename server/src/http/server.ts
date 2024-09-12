@@ -27,7 +27,7 @@ app.setSerializerCompiler(serializerCompiler);
 
 async function main() {
 	await app.listen({
-		port: 3000,
+		port: env.PORT || 3000,
 	});
 	console.log("Server is running");
 }
