@@ -6,7 +6,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getSummary } from "./http/get-summary";
 import { Toaster } from "sonner";
 
-
 export function App() {
   const { data: summary } = useQuery({
     queryKey: ["summary"],

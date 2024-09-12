@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 type GoalCreatedResponse = {
     id: string;
     title: string;
@@ -12,7 +14,7 @@ type CreateGoalRequest = {
 
 
 export async function createGoal(goal: CreateGoalRequest) : Promise<GoalCreatedResponse> {
-    const response = await fetch("http://localhost:3000/goals",{
+    const response = await fetch(`${env.VITE_INORBIT_API_URL}/goals`,{
         method: "POST",
         headers: {
             "Content-Type": "application/json"

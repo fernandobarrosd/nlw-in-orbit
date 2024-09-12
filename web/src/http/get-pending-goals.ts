@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 export type PendingGoalType = {
     id: string;
     title: string;
@@ -8,7 +10,7 @@ export type PendingGoalType = {
 
 
 export async function getPendingGoals() : Promise<PendingGoalType[]> {
-    const response = await fetch("http://localhost:3000/pending-goals");
+    const response = await fetch(`${env.VITE_INORBIT_API_URL}/pending-goals`);
     const data = await response.json();
 
     return data.pendingGoals;

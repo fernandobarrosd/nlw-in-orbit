@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 export type GoalCompletionCreatedType = {
     id: string;
     createdAt: Date;
@@ -6,7 +8,7 @@ export type GoalCompletionCreatedType = {
 
 
 export async function createGoalCompletion(goalID: string) : Promise<GoalCompletionCreatedType> {
-    const response = await fetch(`http://localhost:3000/goals/${goalID}/completions`,{
+    const response = await fetch(`${env.VITE_INORBIT_API_URL}/goals/${goalID}/completions`,{
         method: "POST"
     });
     const data = await response.json();

@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 export type SummaryType = {
     completed: number;
     total: number;
@@ -9,7 +11,7 @@ export type SummaryType = {
 
 
 export async function getSummary() : Promise<SummaryType> {
-    const response = await fetch("http://localhost:3000/summary");
+    const response = await fetch(`${env.VITE_INORBIT_API_URL}/summary`);
     const data = await response.json();
 
     return data.summary
