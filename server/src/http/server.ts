@@ -22,12 +22,11 @@ app.register(createGoalCompletionRoute);
 app.register(getWeekSummaryRoute);
 
 app.setValidatorCompiler(validatorCompiler);
-app.setSerializerCompiler(serializerCompiler);
-
+app.setSerializerCompiler(serializerCompiler)
 
 async function main() {
 	await app.listen({
-		port: env.PORT || 3000,
+		port: env.PORT ? parseInt(env.PORT) : 3000
 	});
 	console.log("Server is running");
 }
