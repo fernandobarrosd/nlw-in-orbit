@@ -2,6 +2,7 @@ server/node_modules
 server/yarn.lock
 server/package-lock.json
 server/.env
+server/dist
 
 
 web/node_modules

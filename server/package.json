@@ -1,14 +1,16 @@
 {
   "name": "in-orbit",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/http/server.js",
   "license": "MIT",
   "scripts": {
     "dev": "tsx watch --env-file .env src/http/server.ts",
     "create:migrations": "yarn drizzle-kit generate",
     "run:migrations": "yarn drizzle-kit migrate",
     "drizzle-studio": "yarn drizzle-kit studio",
-    "run:seed": "tsx --env-file .env src/db/seed.ts"
+    "run:seed": "tsx --env-file .env src/db/seed.ts",
+    "build": "tsc",
+    "prod": "yarn run:migrations && yarn run:seed && yarn build"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
