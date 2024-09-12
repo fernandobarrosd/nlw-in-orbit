@@ -3,10 +3,10 @@ import { env } from "../env";
 export type SummaryType = {
     completed: number;
     total: number;
-    goalsPerDay: Record<string, {
+    goalsPerDay: (Record<string, {
       id: string;
       title: string;
-      completedAt: string;}[]>
+      completedAt: string;}[]> ) | null
 }
 
 

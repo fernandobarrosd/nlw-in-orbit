@@ -62,7 +62,8 @@ export function Summary() {
             <PendingGoals/>
             <div className="flex flex-col gap-6">
                 <h2 className="text-xl font-medium">Sua semana</h2>
-                {Object.entries(summary.goalsPerDay).map(([ date, goalsCompletions ]) => {
+                {summary.goalsPerDay != null ? 
+                Object.entries(summary.goalsPerDay).map(([ date, goalsCompletions ]) => {
                     const weekDay = dayjs(date).format("dddd");
                     const formattedDate = dayjs(date).format("DD [de] MMMM")
                     return (
@@ -73,7 +74,7 @@ export function Summary() {
                             {goalsCompletions.map(({ id, title, completedAt }) => {
                                 const completedAtFormatted = dayjs(completedAt)
                                 .format("HH:mm[h]");
-                                console.log(completedAtFormatted);
+                                
                                 return (
                                     <GoalCompletedItem
                                     key={id}
@@ -83,7 +84,12 @@ export function Summary() {
                             })}
                         </GoalsCompletedInWeekDay>
                     )
-                })}
+                }) : (
+                    <span className="text-sm text-zinc-300">
+                        Nenhuma atividade completada.
+                    </span>
+                )}
+                
             </div>
         </div>
     )
