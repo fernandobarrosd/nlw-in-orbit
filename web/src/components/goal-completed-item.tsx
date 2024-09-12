@@ -1,5 +1,4 @@
 import { CheckCircle2 } from "lucide-react";
-import { Button } from "./ui/button";
 
 type GoalCompletedItemProps = {
     goalTitle: string;

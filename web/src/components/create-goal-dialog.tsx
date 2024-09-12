@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useQueryClient } from "@tanstack/react-query";
 import { createGoal } from "../http/create-goal";
 import { GoalWeeklyFrequencyRadioGroupItem } from "./goal-weekly-frequency-radio-group-item";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 
 const createGoalSchema = z.object({
   title: z.string().min(1, "Informe a atividade que deseja realizar"),

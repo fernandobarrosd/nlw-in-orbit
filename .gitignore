@@ -12,6 +12,8 @@ web/dist
 web/dist-ssr
 web/*.local
 web/.env
+web/tsconfig.app.tsbuildinfo
+web/tsconfig.node.tsbuildinfo
 
 
 # Logs
