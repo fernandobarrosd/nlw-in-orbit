@@ -14,8 +14,8 @@ export async function craeteGoalUseCase({ title, desiredWeeklyFrequency }: Creat
     }).returning();
 
     const [ goal ] = result;
-
     return {
+
         goal
     }
 }

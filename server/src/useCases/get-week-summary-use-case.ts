@@ -1,8 +1,15 @@
-import { and, count, eq, lte, sql } from "drizzle-orm";
+import { and, count, desc, eq, lte, sql } from "drizzle-orm";
 import { db } from "../db";
 import { goalCompletions, goals } from "../db/schema";
 import dayjs from "dayjs";
 import { gte } from "drizzle-orm";
+
+
+type GoalsPerDay = Record<string, {
+    id: string;
+    title: string;
+    completedAt: string;
+}[]>
 
 
 export async function getWeekSummaryUseCase() {
@@ -64,6 +71,7 @@ export async function getWeekSummaryUseCase() {
                 })
                 .from(goalsCompletedInWeek)
                 .groupBy(goalsCompletedInWeek.completedAtDate)
+                .orderBy(desc(goalsCompletedInWeek.completedAtDate))
         )
     const result = await db
         .with(
@@ -78,7 +86,7 @@ export async function getWeekSummaryUseCase() {
             (SELECT SUM(${goalsCreatedUpToWeek.desiredWeeklyFrequency})
             FROM ${goalsCreatedUpToWeek})
         `.mapWith(Number),
-            goalsPerDay: sql`
+            goalsPerDay: sql<GoalsPerDay>`
                 JSON_OBJECT_AGG(
                     ${goalsCompletedByWeekday.completedAtDate},
                     ${goalsCompletedByWeekday.completions}
@@ -89,6 +97,6 @@ export async function getWeekSummaryUseCase() {
 
 
     return {
-        summary: result
+        summary: result[0]
     };
 }
